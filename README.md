@@ -28,7 +28,7 @@ These variables are not defined by default, but can be passed to the role to mod
 ### Defaults ##
 
     - name: mongodb_version
-      value: 3.6.21
+      value: 3.6.12
       desc: MongoDB version to install
 
     - name: mongodb_port
