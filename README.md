@@ -10,9 +10,6 @@ This role requires Ansible 2.0
 
 These variables are not defined by default, but can be passed to the role to modify installation behaviour.
 
-    - name: mongodb_bind_ip
-      desc: IP address MongoDB should to bind to
-
     - name: mongodb_keyfile
       desc: local path to keyfile used for replica set synchronization
 
@@ -34,6 +31,10 @@ These variables are not defined by default, but can be passed to the role to mod
     - name: mongodb_port
       value: 27017
       desc: TCP port MongoDB will listen on
+
+    - name: mongodb_bind_ip
+      desc: IP address MongoDB should to bind to
+      default: 0.0.0.0
 
     - name: mongodb_dbpath
       value: /var/lib/mongodb
