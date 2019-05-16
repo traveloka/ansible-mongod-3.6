@@ -1,6 +1,13 @@
 ---
 
 - block:
+    - name: ensure latest glibc is installed
+      apt:
+        name: "libc6"
+        state: latest
+        update_cache: yes
+        cache_valid_time: "{{ apt_cache_valid_time | default(omit) }}"
+
     - name: add mongodb key
       apt_key:
         keyserver: keyserver.ubuntu.com
