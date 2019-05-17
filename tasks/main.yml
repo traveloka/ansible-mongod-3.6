@@ -56,6 +56,26 @@
       notify: restart mongodb
       when: "{{ mongodb_keyfile_content is defined }}"
 
+    - name: copy mongodb ssl pemfile
+      copy:
+        dest: "{{ mongodb_ssl_pemfile_path }}"
+        owner: "{{ mongodb_user }}"
+        group: "{{ mongodb_group }}"
+        mode: 0600
+        src: "{{ mongodb_ssl_pemfile }}"
+      notify: restart mongodb
+      when: "{{ mongodb_ssl_pemfile is defined }}"
+
+      - name: copy mongodb ssl cafile
+      copy:
+        dest: "{{ mongodb_ssl_cafile_path }}"
+        owner: "{{ mongodb_user }}"
+        group: "{{ mongodb_group }}"
+        mode: 0600
+        src: "{{ mongodb_ssl_cafile }}"
+      notify: restart mongodb
+      when: "{{ mongodb_ssl_cafile is defined }}"
+
     - name: add mongodb directories
       file:
         state: directory

@@ -22,6 +22,15 @@ These variables are not defined by default, but can be passed to the role to mod
     - name: mongodb_repl_oplog_size
       desc: replication OpLog size
 
+    - name: mongodb_ssl_pemfile
+      desc: the .pem file that contains both the TLS/SSL certificate and key
+
+    - name: mongodb_ssl_pemfile_passphrase
+      desc: the password to de-crypt the certificate-key file
+
+    - name: mongodb_ssl_cafile
+      desc: the .pem file that contains the root certificate chain from the Certificate Authority
+
 ### Defaults ##
 
     - name: mongodb_version
@@ -75,6 +84,14 @@ These variables are not defined by default, but can be passed to the role to mod
     - name: mongodb_authorization_enabled
       value: true
       desc: whether to enable authorization
+
+    - name: mongodb_ssl_pemfile_path
+      value: /etc/ssl/mongodb.pem
+      desc: default location of .pem file that contains the signed TLS/SSL certificate and key
+
+    - name: mongodb_ssl_cafile_path
+      value: /etc/ssl/ca.pem
+      desc: default location of .pem file that contains the root certificate chain from the Certificate Authority
 
 ### Vars ###
 

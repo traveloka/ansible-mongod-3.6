@@ -31,6 +31,17 @@ security:
   clusterAuthMode: keyFile
   keyFile: {{ mongodb_keyfile_path }}
 {% endif %}
+{% if mongodb_ssl_pemfile is defined %}
+  ssl:
+    mode: requireSSL
+    PEMKeyFile: {{ mongodb_ssl_pemfile_path }}
+{% endif %}
+{% if mongodb_ssl_pemfile_passphrase is defined and mongodb_ssl_pemfile is defined %}
+    PEMKeyPassword: {{ mongodb_ssl_pemfile_passphrase }}
+{% endif %}
+{% if mongodb_ssl_cafile is defined and mongodb_ssl_pemfile is defined %}
+    CAFile: {{ mongodb_ssl_cafile_path }}
+{% endif %}
 {% if not mongodb_enable_localhost_auth_bypass %}
 setParameter:
   enableLocalhostAuthBypass: false
